@@ -6,7 +6,7 @@ import { pageHead } from "@/lib/head";
 import bg from "@/assets/bg-room.jpg";
 
 export const Route = createFileRoute("/rooms")({
-  validateSearch: (s: Record<string, unknown>) => ({ r: typeof s.r === "string" ? s.r.slice(0, 30) : undefined }),
+  validateSearch: (s: Record<string, unknown>) => ({ r: typeof s["r"] === "string" ? (s["r"] as string).slice(0, 30) : undefined }),
   head: () => pageHead("الصالات الخاصة", "أنشئ صالتك الخاصة وادعُ أصدقاءك إليها."),
   component: Rooms,
 });
