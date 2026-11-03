@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent, type PointerEvent, type ReactNode } from "react";
-import { Map as MapIcon, Users, Mic, Smile, SendHorizontal, Music, Heart, Gift, Hand, Smartphone, X } from "lucide-react";
+import { Map as MapIcon, Smile, SendHorizontal, Music, Heart, Gift, Hand, Smartphone, X } from "lucide-react";
 import boy from "@/assets/sprite-boy.png";
 import girl from "@/assets/sprite-girl.png";
 import girl2 from "@/assets/sprite-girl2.png";
@@ -34,6 +34,7 @@ export function Scene({
   const [hint, setHint] = useState(true);
   const [npcMsg, setNpcMsg] = useState(0);
   const [map, setMap] = useState(false);
+  const [reacts, setReacts] = useState(false);
   const walkTimer = useRef(0);
   const bubbleTimer = useRef(0);
 
@@ -100,7 +101,7 @@ export function Scene({
         </div>
 
         {hotspots.map((h) => (
-          <Link key={h.to} to={h.to} className="neon-chip absolute z-[1500] -translate-x-1/2 -translate-y-1/2 animate-pulse-soft"
+          <Link key={h.to} to={h.to} className="neon-chip absolute z-[1500] -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${h.x}%`, top: `${h.y}%` }}>{h.label}</Link>
         ))}
 
@@ -117,8 +118,6 @@ export function Scene({
 
         <div className="absolute right-3 top-3 z-[2000] flex flex-col gap-2">
           <button aria-label="الخريطة" onClick={() => setMap(true)} className="neon-btn grid size-11 place-items-center rounded-full"><MapIcon className="size-5" /></button>
-          <button aria-label="الأصدقاء" className="neon-btn grid size-11 place-items-center rounded-full"><Users className="size-5" /></button>
-          <button aria-label="المايك" className="neon-btn grid size-11 place-items-center rounded-full"><Mic className="size-5" /></button>
         </div>
 
         {children}
@@ -132,12 +131,18 @@ export function Scene({
               className="min-w-0 flex-1 bg-transparent px-1 text-sm outline-none placeholder:text-glass-foreground/60" />
             <button aria-label="إرسال" className="grid size-8 shrink-0 place-items-center rounded-full bg-neon-gradient"><SendHorizontal className="size-4" /></button>
           </form>
-          {REACTIONS.map(({ label, icon: I, emoji }) => (
-            <button key={label} onClick={() => react(emoji)} className="neon-btn flex w-11 shrink-0 flex-col items-center rounded-2xl py-1.5">
-              <I className="size-5 text-neon-pink" />
-              <span className="text-[10px] font-semibold">{label}</span>
-            </button>
-          ))}
+          <div className="relative shrink-0">
+            {reacts && (
+              <div className="neon-panel absolute bottom-full right-0 mb-2 flex gap-1 rounded-2xl p-1">
+                {REACTIONS.map(({ label, icon: I, emoji }) => (
+                  <button key={label} aria-label={label} onClick={() => { react(emoji); setReacts(false); }} className="grid size-10 place-items-center rounded-xl">
+                    <I className="size-5 text-neon-pink" />
+                  </button>
+                ))}
+              </div>
+            )}
+            <button aria-label="تفاعل" onClick={() => setReacts((v) => !v)} className="neon-btn grid size-11 place-items-center rounded-full"><Heart className="size-5 text-neon-pink" /></button>
+          </div>
         </div>
 
         {map && (
