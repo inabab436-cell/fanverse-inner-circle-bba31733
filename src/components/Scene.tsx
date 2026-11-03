@@ -75,7 +75,7 @@ export function Scene({
       </div>
 
       <div className="relative h-full w-full max-w-[calc(100dvh*2/3)] overflow-hidden">
-        <img src={bg} alt={title} width={1024} height={1536} className="pixelated scene-vivid absolute inset-0 h-full w-full object-cover" />
+        <img src={bg} alt={title} width={1024} height={1536} className="scene-vivid absolute inset-0 h-full w-full object-cover" />
 
         <div className="absolute inset-0" onPointerDown={onWalk}>
           {sprites.map((s) => (
@@ -94,8 +94,9 @@ export function Scene({
                   <span className="absolute left-1/2 top-full -translate-x-1/2 border-x-[6px] border-t-[6px] border-x-transparent border-t-bubble" />
                 </div>
               )}
-              <img src={s.src} alt="" className={`pixelated relative h-[clamp(70px,12dvh,110px)] w-auto ${s.me && walking ? "animate-bob" : ""}`}
-                style={{ transform: s.me && flip ? "scaleX(-1)" : undefined }} />
+              <span className="absolute bottom-0 left-1/2 h-3 w-3/4 -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-night/60 blur-[3px]" />
+              <img src={s.src} alt="" className={`relative w-auto drop-shadow-[0_6px_8px_var(--night)] ${s.me && walking ? "animate-bob" : ""}`}
+                style={{ height: `calc(clamp(110px,19dvh,190px) * ${(0.55 + s.y / 140).toFixed(2)})`, transform: s.me && flip ? "scaleX(-1)" : undefined }} />
             </div>
           ))}
         </div>
@@ -107,7 +108,7 @@ export function Scene({
 
         <div className="neon-panel absolute left-3 top-3 z-[2000] flex items-center gap-2 rounded-full py-1 pl-1 pr-4">
           <div className="relative">
-            <img src={boy} alt="" className="pixelated size-11 rounded-full border-2 border-neon bg-night object-cover object-top" />
+            <img src={boy} alt="" className="size-11 rounded-full border-2 border-neon bg-night object-cover object-top" />
             <span className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-night bg-online" />
           </div>
           <div className="leading-tight">

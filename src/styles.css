@@ -234,7 +234,7 @@
   --color-neon-gold: var(--neon-gold);
 }
 @utility bg-neon-gradient { background-image: var(--gradient-neon); color: var(--glass-foreground); }
-@utility scene-vivid { filter: saturate(0.7) contrast(0.95) brightness(0.92); }
+@utility scene-vivid { filter: saturate(0.95) contrast(1.02); }
 @utility neon-panel {
   background: oklch(0.2 0.08 300 / 0.72);
   color: var(--glass-foreground);
