@@ -48,7 +48,7 @@ function Shop() {
         { src: SPRITES.girl2, x: 30, y: 52, msg: "الهودي تحفة 😍" },
         { src: SPRITES.boy, x: 72, y: 64, msg: "🛍️" },
       ]}
-      hotspots={[{ x: 50, y: 96, to: "/", label: "⭐ الساحة" }]}
+      hotspots={[{ x: 50, y: 86, to: "/", label: "⭐ الساحة" }]}
     >
       <button onClick={() => setOpen(true)} className="neon-chip absolute left-1/2 top-[20%] z-[1700] flex -translate-x-1/2 items-center gap-1 animate-pulse-soft">
         <ShoppingBag className="size-4" /> تسوّق · 🪙 {coins}

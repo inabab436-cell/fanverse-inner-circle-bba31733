@@ -46,7 +46,7 @@ function Rooms() {
         { src: SPRITES.girl, x: 64, y: 44, msg: "نورت الصالة 💜" },
         { src: SPRITES.girl2, x: 36, y: 60, msg: "🎶" },
       ] : []}
-      hotspots={[{ x: 50, y: 96, to: "/", label: "⭐ الساحة" }]}
+      hotspots={[{ x: 50, y: 86, to: "/", label: "⭐ الساحة" }]}
     >
       <div className="absolute left-1/2 top-[20%] z-[1700] flex -translate-x-1/2 gap-2">
         <button onClick={() => setOpen(true)} className="neon-chip flex items-center gap-1"><DoorOpen className="size-4" /> صالاتي</button>

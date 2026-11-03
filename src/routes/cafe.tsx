@@ -17,7 +17,7 @@ export const Route = createFileRoute("/cafe")({
         { src: SPRITES.girl, x: 76, y: 70, msg: "🎶" },
         { src: SPRITES.boy, x: 60, y: 84, msg: "..." },
       ]}
-      hotspots={[{ x: 50, y: 96, to: "/", label: "⭐ الساحة" }]}
+      hotspots={[{ x: 50, y: 86, to: "/", label: "⭐ الساحة" }]}
     />
   ),
 });

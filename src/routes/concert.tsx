@@ -41,7 +41,7 @@ function Concert() {
         { src: SPRITES.boy, x: 78, y: 82, msg: "🎶" },
         { src: SPRITES.girl, x: 50, y: 64, msg: "😍" },
       ]}
-      hotspots={[{ x: 50, y: 96, to: "/", label: "⭐ الساحة" }]}
+      hotspots={[{ x: 50, y: 86, to: "/", label: "⭐ الساحة" }]}
     >
       {video && (
         <div className="neon-panel absolute left-[29%] top-[4.5%] z-[1600] aspect-video w-[42%] overflow-hidden rounded-md">
