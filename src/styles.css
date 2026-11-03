@@ -190,3 +190,34 @@
   .movement-stick > div { width: 120px; height: 120px; }
   .movement-actions { bottom: 2rem; }
 }
+
+:root {
+  --night: oklch(0.16 0.04 300);
+  --glass: oklch(0.16 0.03 290 / 0.72);
+  --glass-foreground: oklch(0.97 0.01 300);
+  --neon: oklch(0.68 0.24 300);
+  --neon-soft: oklch(0.8 0.14 300);
+  --online: oklch(0.75 0.2 145);
+  --bubble: oklch(0.99 0 0);
+  --bubble-foreground: oklch(0.2 0.03 290);
+}
+@theme inline {
+  --color-night: var(--night);
+  --color-glass: var(--glass);
+  --color-glass-foreground: var(--glass-foreground);
+  --color-neon: var(--neon);
+  --color-neon-soft: var(--neon-soft);
+  --color-online: var(--online);
+  --color-bubble: var(--bubble);
+  --color-bubble-foreground: var(--bubble-foreground);
+}
+@utility pixelated { image-rendering: pixelated; }
+@utility glow-ring {
+  box-shadow: 0 0 12px 2px var(--neon), inset 0 0 10px var(--neon);
+}
+@keyframes float-up { from { transform: translate(-50%, 0) scale(.8); opacity: 1 } to { transform: translate(-50%, -90px) scale(1.3); opacity: 0 } }
+@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+@keyframes pulse-ring { 0%,100% { opacity: .9; transform: translate(-50%,-50%) scaleY(.38) scale(1) } 50% { opacity: .5; transform: translate(-50%,-50%) scaleY(.38) scale(1.12) } }
+@utility animate-float-up { animation: float-up 1.4s ease-out forwards; }
+@utility animate-bob { animation: bob .45s ease-in-out infinite; }
+@utility animate-ring { animation: pulse-ring 1.6s ease-in-out infinite; }
