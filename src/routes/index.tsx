@@ -20,8 +20,8 @@ export const Route = createFileRoute("/")({
       hotspots={[
         { x: 20, y: 24, to: "/cafe", label: "☕ المقهى" },
         { x: 82, y: 26, to: "/concert", label: "🎤 المسرح" },
-        { x: 18, y: 70, to: "/shop", label: "🛍️ المتجر" },
-        { x: 82, y: 72, to: "/rooms", label: "🌙 الصالات" },
+        { x: 16, y: 78, to: "/shop", label: "🛍️ المتجر" },
+        { x: 84, y: 78, to: "/rooms", label: "🌙 الصالات" },
       ]}
     />
   ),
