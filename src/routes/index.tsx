@@ -88,7 +88,7 @@ function Cafe() {
   const sprites = [...NPCS.map((n, i) => ({ ...n, i, me: false })), { src: boy, x: pos.x, y: pos.y, msg: "", i: -1, me: true }];
 
   return (
-    <main className="flex h-dvh w-full items-center justify-center overflow-hidden bg-night select-none">
+    <main dir="ltr" className="flex h-dvh w-full items-center justify-center overflow-hidden bg-night select-none">
       {/* portrait-only guard */}
       <div className="fixed inset-0 z-50 hidden flex-col items-center justify-center gap-3 bg-night text-glass-foreground landscape:max-lg:flex">
         <Smartphone className="size-12 rotate-90 text-neon-soft" />
@@ -123,7 +123,7 @@ function Cafe() {
               )}
               {(s.me ? bubble : npcMsg === s.i || (npcMsg + 3) % NPCS.length === s.i ? s.msg : null) && (
                 <div className="absolute bottom-full left-1/2 mb-6 -translate-x-1/2 whitespace-nowrap rounded-2xl bg-bubble px-3 py-1.5 text-xs font-semibold text-bubble-foreground shadow-lg">
-                  {s.me ? bubble : s.msg}
+                  <bdi>{s.me ? bubble : s.msg}</bdi>
                   <span className="absolute left-1/2 top-full -translate-x-1/2 border-x-[6px] border-t-[6px] border-x-transparent border-t-bubble" />
                 </div>
               )}
